@@ -36,7 +36,7 @@
         vendor/samsung/interfaces/nfc/2.0/device_framework_compatibility_matrix.xml
         vendor/samsung/hardware/ril/URC/fcm/radio_framework_compatibility_matrix.xml
 -->
-<compatibility-matrix version="7.0" type="framework">
+<compatibility-matrix version="8.0" type="framework">
     <hal format="aidl" optional="true">
         <name>android.hardware.authsecret.qti.spu</name>
         <interface>
@@ -1279,6 +1279,7 @@
     <hal format="hidl" optional="true">
         <name>vendor.samsung.hardware.biometrics.face</name>
         <version>2.0</version>
+        <version>3.0</version>
         <interface>
             <name>ISehBiometricsFace</name>
             <instance>default</instance>

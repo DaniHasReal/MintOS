@@ -20,6 +20,16 @@ sed -i "s/ro.product.device/ro.product.vendor.device/g" "$WORK_DIR/vendor/etc/mi
 echo "Fix RIL"
 sed -i "s/1.4::IRadio/1.5::IRadio/g" "$WORK_DIR/vendor/etc/vintf/manifest.xml"
 
+echo "Fix face unlock"
+DELETE_FROM_WORK_DIR "vendor" "bin/hw/vendor.samsung.hardware.biometrics.face@2.0-service"
+DELETE_FROM_WORK_DIR "vendor" "etc/init/vendor.samsung.hardware.biometrics.face@2.0-service.rc"
+ADD_TO_WORK_DIR "a73xqxx" "vendor" "bin/hw/vendor.samsung.hardware.biometrics.face@3.0-service"
+ADD_TO_WORK_DIR "a73xqxx" "vendor" "etc/init/vendor.samsung.hardware.biometrics.face@3.0-service.rc"
+ADD_TO_WORK_DIR "a73xqxx" "vendor" "lib/vendor.samsung.hardware.biometrics.face@2.0.so"
+ADD_TO_WORK_DIR "a73xqxx" "vendor" "lib/vendor.samsung.hardware.biometrics.face@3.0.so"
+ADD_TO_WORK_DIR "a73xqxx" "vendor" "lib64/vendor.samsung.hardware.biometrics.face@2.0.so"
+ADD_TO_WORK_DIR "a73xqxx" "vendor" "lib64/vendor.samsung.hardware.biometrics.face@3.0.so"
+
 echo "Add stock rscmgr.rc"
 ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system" "system/etc/init/rscmgr.rc" 0 0 644 "u:object_r:system_file:s0"
 
@@ -47,9 +57,6 @@ ADD_TO_WORK_DIR "a52qnsxx" "system_ext" "lib64/vendor.qti.hardware.fm@1.0.so" 0 
 
 echo "Add stock vintf manifest"
 ADD_TO_WORK_DIR "a73xqxx" "system" "system/etc/vintf/manifest.xml" 0 0 644 "u:object_r:system_file:s0"
-sed -i 's/<compatibility-matrix version="7\.0" type="framework">/<compatibility-matrix version="8.0" type="framework">/' "$WORK_DIR/vendor/etc/vintf/compatibility_matrix.xml"
-sed -i 's/<compatibility-matrix version="7\.0" type="framework">/<compatibility-matrix version="8.0" type="framework">/' "$WORK_DIR/system/system/etc/vintf/compatibility_matrix.device.xml"
-sed -i '/<system-sdk>/{n;s/<version>29<\/version>/<version>30<\/version>/}' "$WORK_DIR/vendor/etc/vintf/compatibility_matrix.xml"
 
 DELETE_FROM_WORK_DIR "system" "system/etc/permissions/com.samsung.feature.audio_fast_listenback.xml"
 DELETE_FROM_WORK_DIR "system" "system/etc/permissions/com.samsung.feature.audio_listenback.xml"
