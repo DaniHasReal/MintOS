@@ -67,7 +67,6 @@ priv-app/Velvet
 SYSTEM_DEBLOAT+="
 system/app/ARCore
 system/app/BixbyWakeup
-system/app/DRParser
 system/app/DictDiotekForSec
 system/app/KidsHome_Installer
 system/app/FBAppManager_NS
@@ -103,7 +102,6 @@ system/etc/permissions/privapp-permissions-com.samsung.android.cidmanager.xml
 system/etc/permissions/privapp-permissions-com.sec.android.app.dexonpc.xml
 system/etc/permissions/privapp-permissions-com.samsung.android.dkey.xml
 system/etc/permissions/privapp-permissions-com.samsung.android.game.gamehome.xml
-system/etc/permissions/privapp-permissions-com.samsung.android.providers.factory.xml
 system/etc/permissions/privapp-permissions-com.samsung.android.samsungpass.xml
 system/etc/permissions/privapp-permissions-com.samsung.android.spayfw.xml
 system/etc/permissions/privapp-permissions-com.sec.android.app.factorykeystring.xml
@@ -131,14 +129,12 @@ system/priv-app/AutoDoodle
 system/priv-app/AvatarEmojiSticker
 system/priv-app/BCService
 system/priv-app/CIDManager
-system/priv-app/DeviceKeystring
 system/priv-app/DeXonPC
 system/priv-app/DiagMonAgent94
 system/priv-app/DigitalKey
 system/priv-app/DressRoom
 system/priv-app/FBInstaller_NS
 system/priv-app/FBServices
-system/priv-app/FactoryTestProvider
 system/priv-app/FotaAgent
 system/priv-app/GameHome
 system/priv-app/LinkToWindowsService
