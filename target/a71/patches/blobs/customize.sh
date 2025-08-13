@@ -95,11 +95,18 @@ ADD_TO_WORK_DIR "a52qnsxx" "system_ext" "app/com.qualcomm.qti.services.secureui/
 LOG_STEP_OUT
 
 LOG_STEP_IN "- Fix NFC"
+DELETE_FROM_WORK_DIR "system" "system/lib64/libnfc_nxpsn_jni.so"
+DELETE_FROM_WORK_DIR "system" "system/priv-app/NfcNci/lib/arm64/libnfc_nxpsn_jni.so"
 ADD_TO_WORK_DIR "pa1qxx" "system" "system/lib64/libnfc_sec_jni.so"
 ADD_TO_WORK_DIR "pa1qxx" "system" "system/lib64/libnfc-nci_flags.so"
 ADD_TO_WORK_DIR "pa1qxx" "system" "system/lib64/libnfc-sec.so"
 ADD_TO_WORK_DIR "pa1qxx" "system" "system/lib64/libstatslog_nfc.so"
+ADD_TO_WORK_DIR "pa1qxx" "system" "system/priv-app/NfcNci/lib/arm64/libnfc_sec_jni.so"
 
 # Rename to resolve dlopen() failure
-mv $WORK_DIR/system/system/lib64/libnfc_sec_jni.so $WORK_DIR/system/system/lib64/libnfc_nxpsn_jni.so
+mv $WORK_DIR/system/system/lib64/libnfc_sec_jni.so $WORK_DIR/system/system/lib64/libnfc_nxppn_jni.so
+mv $WORK_DIR/system/system/priv-app/NfcNci/lib/arm64/libnfc_sec_jni.so $WORK_DIR/system/system/priv-app/NfcNci/lib/arm64/libnfc_nxppn_jni.so
+
+sed -i 's/libnfc_sec_jni/libnfc_nxpsn_jni/g' $WORK_DIR/configs/file_context-system
+sed -i 's/libnfc_sec_jni/libnfc_nxpsn_jni/g' $WORK_DIR/configs/fs_config-system
 LOG_STEP_OUT
