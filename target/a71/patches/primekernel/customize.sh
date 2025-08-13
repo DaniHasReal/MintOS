@@ -1,16 +1,6 @@
-SKIPUNZIP=1
+CURR_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
 
-# [
-KERNEL_REPO="https://github.com/pascua28/android_kernel_samsung_sm7150/releases/download/upstream"
-
-REPLACE_KERNEL_BINARIES()
- {
-     [ -f "$WORK_DIR/kernel/boot.img" ] && rm -rf "$WORK_DIR/kernel/boot.img"
-     echo "Downloading boot.img"
-     curl -L -s -o "$WORK_DIR/kernel/boot.img" "$KERNEL_REPO/boot.img"
- }
-# ]
-
-REPLACE_KERNEL_BINARIES
-
-
+LOG_STEP_IN "Copying boot.img and dtbo.img"
+mv $CURR_DIR/kernel/boot.img $WORK_DIR/kernel/boot.img
+mv $CURR_DIR/kernel/dtbo.img $WORK_DIR/kernel/dtbo.img
+LOG_STEP_OUT
