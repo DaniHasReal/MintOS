@@ -93,3 +93,13 @@ ADD_TO_WORK_DIR "a52qnsxx" "system" "system/etc/sysconfig/preinstalled-packages-
 ADD_TO_WORK_DIR "a52qnsxx" "system_ext" "app/com.qualcomm.qti.services.secureui/com.qualcomm.qti.services.secureui.apk" \
     0 0 644 "u:object_r:system_file:s0"
 LOG_STEP_OUT
+
+LOG_STEP_IN "- Fix NFC"
+ADD_TO_WORK_DIR "pa1qxx" "system" "system/lib64/libnfc_sec_jni.so"
+ADD_TO_WORK_DIR "pa1qxx" "system" "system/lib64/libnfc-nci_flags.so"
+ADD_TO_WORK_DIR "pa1qxx" "system" "system/lib64/libnfc-sec.so"
+ADD_TO_WORK_DIR "pa1qxx" "system" "system/lib64/libstatslog_nfc.so"
+
+# Rename to resolve dlopen() failure
+mv $WORK_DIR/system/system/lib64/libnfc_sec_jni.so $WORK_DIR/system/system/lib64/libnfc_nxpsn_jni.so
+LOG_STEP_OUT
