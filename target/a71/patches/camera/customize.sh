@@ -77,7 +77,7 @@ do
     DELETE_FROM_WORK_DIR "system" "$blob"
 done
 
-echo "Add stock camera libs"
+LOG_STEP_IN "Add stock camera libs"
 BLOBS_LIST="
 system/lib64/libFace_Landmark_Engine.camera.samsung.so
 system/lib64/libFaceRestoration.camera.samsung.so
@@ -100,8 +100,9 @@ for blob in $BLOBS_LIST
 do
     ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system" "$blob" 0 0 644 "u:object_r:system_lib_file:s0"
 done
+LOG_STEP_OUT
 
-echo "Fix AI Photo Editor"
+LOG_STEP_IN "Fix AI Photo Editor"
 cp -a --preserve=all \
     "$SRC_DIR/prebuilts/samsung/a52qnsxx/system/cameradata/portrait_data/single_bokeh_feature.json" \
     "$WORK_DIR/system/system/cameradata/portrait_data/unica_bokeh_feature.json"
@@ -111,3 +112,4 @@ sed -i "s/MODEL_TYPE_INSTANCE_CAPTURE/MODEL_TYPE_OBJ_INSTANCE_CAPTURE/g" \
 sed -i \
     's/system\/cameradata\/portrait_data\/single_bokeh_feature.json/system\/cameradata\/portrait_data\/unica_bokeh_feature.json\x00/g' \
     "$WORK_DIR/system/system/lib64/libPortraitSolution.camera.samsung.so"
+LOG_STEP_OUT
