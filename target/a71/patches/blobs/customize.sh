@@ -107,6 +107,6 @@ ADD_TO_WORK_DIR "pa1qxx" "system" "system/priv-app/NfcNci/lib/arm64/libnfc_sec_j
 mv $WORK_DIR/system/system/lib64/libnfc_sec_jni.so $WORK_DIR/system/system/lib64/libnfc_nxppn_jni.so
 mv $WORK_DIR/system/system/priv-app/NfcNci/lib/arm64/libnfc_sec_jni.so $WORK_DIR/system/system/priv-app/NfcNci/lib/arm64/libnfc_nxppn_jni.so
 
-sed -i 's/libnfc_sec_jni/libnfc_nxpsn_jni/g' $WORK_DIR/configs/file_context-system
-sed -i 's/libnfc_sec_jni/libnfc_nxpsn_jni/g' $WORK_DIR/configs/fs_config-system
+sed -i 's/libnfc_sec_jni/libnfc_nxppn_jni/g' $WORK_DIR/configs/file_context-system
+sed -i 's/libnfc_sec_jni/libnfc_nxppn_jni/g' $WORK_DIR/configs/fs_config-system
 LOG_STEP_OUT
