@@ -13,13 +13,13 @@ index d4847f3e9..cb6b32f16 100644
 +++ b/smali_classes2/com/samsung/android/security/keystore/AttestParameterSpec.smali
 @@ -67,6 +67,8 @@
  
-     iput-boolean p2, p0, Lcom/samsung/android/security/keystore/AttestParameterSpec;->mDeviceAttestation:Z
+     iput-boolean p1, p0, Lcom/samsung/android/security/keystore/AttestParameterSpec;->mDeviceAttestation:Z
  
-+    const/4 p3, 0x1
++    const/4 p2, 0x1
 +
-     iput-boolean p3, p0, Lcom/samsung/android/security/keystore/AttestParameterSpec;->mVerifiableIntegrity:Z
+     iput-boolean p2, p0, Lcom/samsung/android/security/keystore/AttestParameterSpec;->mVerifiableIntegrity:Z
  
-     const/4 p1, 0x0
+     iput-boolean p1, p0, Lcom/samsung/android/security/keystore/AttestParameterSpec;->mDevicePropertiesAttestationIncluded:Z
 -- 
 2.43.0
 
