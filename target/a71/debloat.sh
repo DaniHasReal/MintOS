@@ -23,45 +23,15 @@
 # Overlays
 SYSTEM_DEBLOAT+="
 system/app/WifiRROverlayAppH2E
-system/app/WifiRROverlayAppQC
-system/app/WifiRROverlayAppWifiLock
-"
-PRODUCT_DEBLOAT+="
-overlay/SoftapOverlay6GHz
-overlay/SoftapOverlayDualAp
-overlay/SoftapOverlayOWE
-"
-
-# mAFPC
-SYSTEM_DEBLOAT+="
-system/bin/mafpc_write
-"
-
-# HDCP
-SYSTEM_DEBLOAT+="
-system/bin/dhkprov
-system/bin/qchdcpkprov
-system/etc/init/dhkprov.rc
-system/lib64/vendor.samsung.hardware.security.hdcp.keyprovisioning@1.0.so
-"
-
-# GameDriver
-SYSTEM_DEBLOAT+="
-system/priv-app/GameDriver-SM8550
 "
 
 # Camera SDK
 SYSTEM_DEBLOAT+="
 system/etc/default-permissions/default-permissions-com.samsung.android.globalpostprocmgr.xml
-system/etc/default-permissions/default-permissions-com.samsung.petservice.xml
-system/etc/default-permissions/default-permissions-com.samsung.videoscan.xml
 system/etc/permissions/cameraservice.xml
 system/etc/permissions/privapp-permissions-com.samsung.android.globalpostprocmgr.xml
 system/etc/permissions/privapp-permissions-com.samsung.petservice.xml
 system/etc/permissions/privapp-permissions-com.samsung.videoscan.xml
-system/etc/permissions/sec_camerax_impl.xml
-system/etc/permissions/sec_camerax_service.xml
-system/framework/sec_camerax_impl.jar
 system/framework/scamera_sep.jar
 system/priv-app/GlobalPostProcMgr
 system/priv-app/PetService
@@ -72,7 +42,6 @@ system/priv-app/VideoScan
 
 # Gallery AI Semantic Search
 SYSTEM_DEBLOAT+="
-system/etc/default-permissions/default-permissions-com.samsung.mediasearch.xml
 system/etc/mediasearch
 system/etc/permissions/privapp-permissions-com.samsung.mediasearch.xml
 system/priv-app/MediaSearch
@@ -91,8 +60,8 @@ system/priv-app/IntelligentDynamicFpsService
 system/priv-app/SohService
 "
 PRODUCT_DEBLOAT+="
-priv-app/HotwordEnrollmentOKGoogleEx4HEXAGON
-priv-app/HotwordEnrollmentXGoogleEx4HEXAGON
+priv-app/HotwordEnrollmentXGoogleEx6_WIDEBAND_SMALL
+priv-app/HotwordEnrollmentYGoogleEx6_WIDEBAND_SMALL
 "
 
 # system_ext clean-up
@@ -113,28 +82,15 @@ framework/com.qti.location.sdk.jar
 framework/org.carconnectivity.android.digitalkey.rangingintent.jar
 framework/org.carconnectivity.android.digitalkey.secureelement.jar
 lib/libqcc.so
-lib/libqcc_file_agent_sys.so
 lib/libqccdme.so
-lib/libqccfileservice.so
 lib/vendor.qti.hardware.qccsyshal@1.0.so
-lib/vendor.qti.hardware.qccsyshal@1.1.so
-lib/vendor.qti.hardware.qccsyshal@1.2.so
-lib/vendor.qti.hardware.qccvndhal@1.0.so
-lib/vendor.qti.hardware.trustedui@1.1.so
-lib/vendor.qti.hardware.trustedui@1.2.so
 lib/vendor.qti.qccvndhal_aidl-V1-ndk.so
-lib64/libqcc.so
 lib64/libqcc_file_agent_sys.so
-lib64/libqccdme.so
 lib64/libqccfileservice.so
-lib64/vendor.qti.hardware.qccsyshal@1.0.so
 lib64/vendor.qti.hardware.qccsyshal@1.1.so
 lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so
 lib64/vendor.qti.hardware.qccsyshal@1.2.so
 lib64/vendor.qti.hardware.qccvndhal@1.0.so
-lib64/vendor.qti.hardware.trustedui@1.1.so
-lib64/vendor.qti.hardware.trustedui@1.2.so
-lib64/vendor.qti.qccvndhal_aidl-V1-ndk.so
 priv-app/com.qualcomm.location
 priv-app/com.qualcomm.qti.services.systemhelper
 "
