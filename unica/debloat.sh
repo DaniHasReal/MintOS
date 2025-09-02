@@ -28,27 +28,9 @@ VENDOR_DEBLOAT+="
 etc/dpolicy
 "
 
-# Samsung SIM Unlock
-SYSTEM_DEBLOAT+="
-system/bin/ssud
-system/etc/init/ssu_dm1qxxx.rc
-system/etc/init/ssu.rc
-system/etc/permissions/privapp-permissions-com.samsung.ssu.xml
-system/etc/sysconfig/samsungsimunlock.xml
-system/lib64/android.security.securekeygeneration-ndk.so
-system/lib64/libssu_keystore2.so
-system/priv-app/SsuService
-"
-
 if [[ "$TARGET_SINGLE_SYSTEM_IMAGE" = "essi" ]]; then
     SYSTEM_DEBLOAT+="
     system/etc/init/ssu_r11sxxx.rc
-    "
-fi
-
-if [[ "$TARGET_SINGLE_SYSTEM_IMAGE" = "qssi" ]]; then
-    SYSTEM_DEBLOAT+="
-    system/etc/init/ssu_dm1qxxx.rc
     "
 fi
 
@@ -63,8 +45,8 @@ etc/init/vendor_flash_recovery.rc
 PRODUCT_DEBLOAT+="
 app/AssistantShell
 app/BardShell
-app/Chrome
-app/DuoStub
+app/Chrome64
+app/Duo
 app/Gmail2
 app/Maps
 app/YouTube
@@ -100,7 +82,6 @@ system/etc/permissions/privapp-permissions-com.microsoft.skydrive.xml
 system/etc/permissions/privapp-permissions-com.samsung.android.authfw.xml
 system/etc/permissions/privapp-permissions-com.samsung.android.carkey.xml
 system/etc/permissions/privapp-permissions-com.samsung.android.cidmanager.xml
-system/etc/permissions/privapp-permissions-com.sec.android.app.dexonpc.xml
 system/etc/permissions/privapp-permissions-com.samsung.android.dkey.xml
 system/etc/permissions/privapp-permissions-com.samsung.android.providers.factory.xml
 system/etc/permissions/privapp-permissions-com.samsung.android.samsungpass.xml
@@ -113,7 +94,6 @@ system/etc/permissions/privapp-permissions-com.sec.epdgtestapp.xml
 system/etc/permissions/privapp-permissions-com.sec.facatfunction.xml
 system/etc/permissions/privapp-permissions-com.sem.factoryapp.xml
 system/etc/permissions/privapp-permissions-com.wssyncmldm.xml
-system/etc/permissions/privapp-permissions-de.axelspringer.yana.zeropage.xml
 system/etc/permissions/privapp-permissions-meta.xml
 system/etc/sysconfig/digitalkey.xml
 system/etc/sysconfig/meta-hiddenapi-package-allowlist.xml
@@ -127,7 +107,6 @@ system/priv-app/AuthFramework
 system/priv-app/BCService
 system/priv-app/CIDManager
 system/priv-app/DeviceKeystring
-system/priv-app/DeXonPC
 system/priv-app/DiagMonAgent94
 system/priv-app/DigitalKey
 system/priv-app/FBInstaller_NS
@@ -141,16 +120,12 @@ system/priv-app/SOAgent75
 system/priv-app/SamsungCarKeyFw
 system/priv-app/SamsungPass
 system/priv-app/YourPhone_P1_5
-system/priv-app/Upday
 "
 
 if [[ "$TARGET_SINGLE_SYSTEM_IMAGE" = "qssi" ]]; then
     SYSTEM_DEBLOAT+="
-    system/app/DictDiotekForSec
     system/app/SamsungCalendar
     system/app/SmartReminder
-    system/etc/permissions/privapp-permissions-com.samsung.android.game.gamehome.xml
-    system/priv-app/GameHome
     " 
 fi
 
