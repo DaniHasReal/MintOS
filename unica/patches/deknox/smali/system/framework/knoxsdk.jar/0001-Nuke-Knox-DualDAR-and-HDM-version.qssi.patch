@@ -1,29 +1,15 @@
-From dfecec4b4d88425b996baf738c25008dfcc87096 Mon Sep 17 00:00:00 2001
+From 55ff8dc10cae7ea778bc53e82dc31dc6eadb759a Mon Sep 17 00:00:00 2001
 From: ExtremeXT <75576145+ExtremeXT@users.noreply.github.com>
-Date: Sat, 26 Apr 2025 21:22:29 +0300
+Date: Wed, 3 Sep 2025 10:52:28 +0800
 Subject: [PATCH] Nuke Knox DualDAR and HDM version
 
-Signed-off-by: utkustnr <utkuustuner@proton.me>
+Signed-off-by: Samuel Pascua <pascua.samuel.14@gmail.com>
 ---
- .../android/knox/ddar/DualDARPolicy.smali     |  2 +-
  .../samsung/android/knox/hdm/HdmManager.smali | 38 +------------------
- 2 files changed, 3 insertions(+), 37 deletions(-)
+ 1 file changed, 2 insertions(+), 36 deletions(-)
 
-diff --git a/smali/com/samsung/android/knox/ddar/DualDARPolicy.smali b/smali/com/samsung/android/knox/ddar/DualDARPolicy.smali
-index aa51194..b9dcfd6 100644
---- a/smali/com/samsung/android/knox/ddar/DualDARPolicy.smali
-+++ b/smali/com/samsung/android/knox/ddar/DualDARPolicy.smali
-@@ -96,7 +96,7 @@
- .method public static greylist getDualDARVersion()Ljava/lang/String;
-     .locals 1
- 
--    const-string v0, "1.7.0"
-+    const/4 v0, 0x0
- 
-     return-object v0
- .end method
 diff --git a/smali/com/samsung/android/knox/hdm/HdmManager.smali b/smali/com/samsung/android/knox/hdm/HdmManager.smali
-index 2f014b2..61a4177 100644
+index 22acc86..d8d53a1 100644
 --- a/smali/com/samsung/android/knox/hdm/HdmManager.smali
 +++ b/smali/com/samsung/android/knox/hdm/HdmManager.smali
 @@ -35,7 +35,7 @@
@@ -55,7 +41,7 @@ index 2f014b2..61a4177 100644
 -
 -    new-instance v2, Ljava/lang/StringBuilder;
 -
--    const-string v3, "3.0 - "
+-    const-string v3, "2.0 - "
 -
 -    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 -
@@ -72,7 +58,7 @@ index 2f014b2..61a4177 100644
 -    goto :goto_0
 -
 -    :cond_0
--    const-string v0, "3.0 - 115"
+-    const-string v0, "2.0"
 +    const/4 v0, 0x0
  
 -    :goto_0
@@ -80,5 +66,5 @@ index 2f014b2..61a4177 100644
  .end method
  
 -- 
-2.49.0
+2.50.1
 
