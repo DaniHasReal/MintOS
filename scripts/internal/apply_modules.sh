@@ -101,7 +101,9 @@ APPLY_SMALI_PATCHES()
         fi
         if [[ "$p" == *".essi."* ]] && [[ "$TARGET_SINGLE_SYSTEM_IMAGE" == "qssi" ]]; then
             continue
-        elif [[ "$p" == *".qssi."* ]] && [[ "$TARGET_SINGLE_SYSTEM_IMAGE" == "essi" ]]; then
+        fi
+
+        if [[ "$p" == *".qssi."* ]] && [[ "$TARGET_SINGLE_SYSTEM_IMAGE" == "essi" ]]; then
             continue
         fi
 
