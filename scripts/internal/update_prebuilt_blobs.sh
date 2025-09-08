@@ -98,6 +98,9 @@ case "$1" in
     "prebuilts/samsung/r0sxxx")
         FIRMWARE="SM-S901B/EUX/350020271234563"
         ;;
+    "prebuilts/samsung/r11sxxx")
+        FIRMWARE="SM-S711B/EUX/358615311234564"
+        ;;
     *)
         ABORT "Firmware not set for path $1"
         ;;
