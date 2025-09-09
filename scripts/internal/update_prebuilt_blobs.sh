@@ -65,41 +65,8 @@ if [ -d "$MODULE/system_ext" ]; then
 fi
 
 case "$1" in
-    "prebuilts/samsung/a05snsdxx")
-        FIRMWARE="SM-A057F/INS/356480620213714"
-        ;;
-    "prebuilts/samsung/a36xqnaxx")
-        FIRMWARE="SM-A366E/INS/357178223702799"
-        ;;
     "prebuilts/samsung/r8qxxx")
         FIRMWARE="SM-G780G/BTU/357107761234568"
-        ;;
-    "prebuilts/samsung/a52qnsxx")
-        FIRMWARE="SM-A525F/SER/352938771234569"
-        ;;
-    "prebuilts/samsung/a73xqxx")
-        FIRMWARE="SM-A736B/XME/352828291234563"
-        ;;
-    "prebuilts/samsung/b0sxxx")
-        FIRMWARE="SM-S908B/BTE/350048581234569"
-        ;;
-    "prebuilts/samsung/b5qxxx")
-        FIRMWARE="SM-F731B/EUX/350929871234569"
-        ;;
-    "prebuilts/samsung/dm3qxxx")
-        FIRMWARE="SM-S918B/EUX/350196551234562"
-        ;;
-    "prebuilts/samsung/gts9fexx")
-        FIRMWARE="SM-X516B/EUX/354136921234567"
-        ;;
-    "prebuilts/samsung/pa1qxx")
-        FIRMWARE="SM-S931B/EUX/350466671872843"
-        ;;
-    "prebuilts/samsung/r0sxxx")
-        FIRMWARE="SM-S901B/EUX/350020271234563"
-        ;;
-    "prebuilts/samsung/e1qzcx")
-        FIRMWARE="SM-S9210/CHC/356724910402671"
         ;;
     *)
         ABORT "Firmware not set for path $1"
