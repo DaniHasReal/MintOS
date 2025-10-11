@@ -66,7 +66,7 @@ fi
 
 case "$1" in
     "prebuilts/samsung/a17")
-        FIRMWARE="SM-A176B/EUX/356480620213714"
+        FIRMWARE="SM-A176B/XXV/355851152242936"
         ;;
     *)
         ABORT "Firmware not set for path $1"
