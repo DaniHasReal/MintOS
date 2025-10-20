@@ -1,0 +1,4 @@
+id=nfc
+name=NFC service 1.2
+author=pascua28
+description=Replace NFC blobs with newer ones.
