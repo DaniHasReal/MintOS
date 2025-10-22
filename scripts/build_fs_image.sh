@@ -54,6 +54,9 @@ BUILD_IMAGE_MKFS()
                 BUILD_CMD+="-s "
             fi
             BUILD_CMD+="\"$INPUT_DIR\" \"$OUTPUT_FILE\" \"ext4\" \"$MOUNT_POINT\" "
+            if [ "$PARTITION" == "system" ] || [ "$PARTITION" == "vendor" ]; then
+                IMAGE_SIZE=$((IMAGE_SIZE + 300*1024*1024))
+            fi
             BUILD_CMD+="\"$IMAGE_SIZE\" "
             # https://android.googlesource.com/platform/build/+/refs/tags/android-15.0.0_r1/tools/releasetools/build_image.py#808
             BUILD_CMD+="-j \"0\" "
