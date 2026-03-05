@@ -13,34 +13,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - module: "Galaxy A05s (a05snsdxx)"
-            path: "prebuilts/samsung/a05snsdxx"
-          - module: "Galaxy A36 5G (a36xqnaxx)"
-            path: "prebuilts/samsung/a36xqnaxx"
-          - module: "Galaxy A52 (a52qnsxx)"
-            path: "prebuilts/samsung/a52qnsxx"
-          - module: "Galaxy A73 5G (a73xqxx)"
-            path: "prebuilts/samsung/a73xqxx"
-          - module: "Galaxy S22 Ultra (b0sxxx)"
-            path: "prebuilts/samsung/b0sxxx"
-          - module: "Galaxy S21 FE 5G (r9qxxx)"
-            path: "prebuilts/samsung/r9qxxx"
-          - module: "Galaxy Z Fold5 (b5qxxx)"
-            path: "prebuilts/samsung/b5qxxx"
-          - module: "Galaxy S23 Ultra (dm3qxxx)"
-            path: "prebuilts/samsung/dm3qxxx"
-          - module: "Galaxy S24 (e1qzcx)"
-            path: "prebuilts/samsung/e1qzcx"
-          - module: "Galaxy Tab S9 FE 5G (gts9fexx)"
-            path: "prebuilts/samsung/gts9fexx"
-          - module: "Galaxy S25 (pa1qxxx)"
-            path: "prebuilts/samsung/pa1qxxx"
-          - module: "Galaxy S22 (r0sxxx)"
-            path: "prebuilts/samsung/r0sxxx"
+          - module: "Galaxy S21 5G (Snapdragon) (o1qxxx)"
+            device: "o1qxxx"
+            firmware: "SCG09/KDI/356953790849004"
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: 'recursive'
 
@@ -64,9 +43,9 @@ jobs:
         run: |
           sudo apt update
           DEBIAN_FRONTEND=noninteractive sudo apt install -yq \
-            p7zip-full attr ccache clang ffmpeg golang \
+            7zip attr ccache clang ffmpeg \
             libbrotli-dev libgtest-dev libprotobuf-dev libunwind-dev libpcre2-dev \
-            libzstd-dev linux-modules-extra-$(uname -r) lld pcre2-utils protobuf-compiler python3.12-venv webp
+            libzstd-dev linux-modules-extra-$(uname -r) lld protobuf-compiler webp
           sudo modprobe erofs f2fs
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -88,18 +67,18 @@ jobs:
       - name: Update prebuilt blobs
         run: |
           source ./buildenv.sh a52sxq
-          ./scripts/internal/update_prebuilt_blobs.sh ${{ matrix.path }}
-          echo "PDA_BUILD=$(cat ./${{ matrix.path }}/.current | cut -d "/" -f 1)" >> $GITHUB_ENV
+          ./scripts/internal/update_prebuilt_blobs.sh "${{ matrix.device }}" "${{ matrix.firmware }}"
+          echo "PDA_BUILD=$(cat "./prebuilts/samsung/${{ matrix.device }}/.current" | cut -d "/" -f "1")" >> "$GITHUB_ENV"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:
           add-paths: |
-            ${{ matrix.path }}
-          commit-message: '${{ matrix.path }}: update blobs to ${{ env.PDA_BUILD }}'
+            prebuilts/samsung/${{ matrix.device }}
+          commit-message: 'prebuilts/samsung/${{ matrix.device }}: update blobs to ${{ env.PDA_BUILD }}'
           committer: 'github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>'
           author: 'github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>'
-          branch: '${{ matrix.path }}'
+          branch: 'prebuilts/samsung/${{ matrix.device }}'
           delete-branch: true
-          title: 'Update ${{ matrix.path }} blobs to ${{ env.PDA_BUILD }}'
+          title: 'Update prebuilts/samsung/${{ matrix.device }} blobs to ${{ env.PDA_BUILD }}'
           body: ''
