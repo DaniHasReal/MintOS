@@ -1,4 +1,4 @@
-name: Build ProjectNERV
+name: Build MintOS
 
 on:
   workflow_dispatch:
