@@ -27,6 +27,9 @@ Any form of contribution, suggestions, bug report or feature request for the pro
 # What is NERV?
 NERV is a fork of UN1CA; to make the build system work with One UI 7, we are aiming for an UN1CA-like experience with what we can do. All changes have been made under GPLv3, if you see any problems about credits at repo, please kindly report to me at Telegram, XDA or email. 
 
+# What is MintOS?
+MintOS is a fork of NERV; to... wait actually I don't even know. All I know is that it adds changing FS to EXT4. I literally just forked this.
+
 # Features
 - Based on the latest Samsung devices firmware:
   - Galaxy S23 (Paradigm)
